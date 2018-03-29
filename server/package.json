@@ -1,0 +1,39 @@
+{
+  "name": "react-read-tool",
+  "version": "1.0.0",
+  "description": "一个使用react开发的小说阅读webapp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "tsc -w",
+    "start": "nodemon ./build/index.js",
+    "dev": "tsc && concurrently \"npm run watch\" \"npm run start\" "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HighSkySky/react-read-tool.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HighSkySky/react-read-tool/issues"
+  },
+  "homepage": "https://github.com/HighSkySky/react-read-tool#readme",
+  "devDependencies": {
+    "@types/cheerio": "^0.22.7",
+    "@types/koa": "^2.0.44",
+    "@types/koa-router": "^7.0.27",
+    "@types/mongoose": "^5.0.7",
+    "concurrently": "^3.5.1",
+    "nodemon": "^1.17.2",
+    "typescript": "^2.8.1"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "cheerio": "^1.0.0-rc.2",
+    "koa": "^2.5.0",
+    "koa-router": "^7.4.0",
+    "mongoose": "^5.0.12"
+  }
+}
