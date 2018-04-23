@@ -7,12 +7,12 @@ import './index.css'
 
 function addNav(title) {
   return function (Component) {
-    return function () {
+    return function (props) {
       return (
         <React.Fragment>
           <TopNav title={title} />
           <div id="main">
-            <Component />
+            <Component {...props} />
           </div>
           <BottomNav />
         </React.Fragment>

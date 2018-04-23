@@ -5,18 +5,24 @@ import { hot } from 'react-hot-loader'
 import './index.css'
 
 import { Home, Search, Setting } from '../pages'
+import Loading from '../containers/Loading'
+import ErrorModel from '../containers/ErrorModel'
 
 @hot(module)
 class App extends React.Component {
   render() {
     return (
-      <BrowserRouter>
-        <React.Fragment>
-          <Route exact path="/" component={Home} />
-          <Route path="/search" component={Search} />
-          <Route path="/set" component={Setting} />
-        </React.Fragment>
-      </BrowserRouter>
+      <React.Fragment>
+        <BrowserRouter>
+          <React.Fragment>
+            <Route exact path="/" component={Home} />
+            <Route path="/search" component={Search} />
+            <Route path="/set" component={Setting} />
+          </React.Fragment>
+        </BrowserRouter>
+        <Loading />
+        <ErrorModel />
+      </React.Fragment>
     )
   }
 }

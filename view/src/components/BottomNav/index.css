@@ -7,6 +7,7 @@
   background-color: #f8f8f9;
   color: #80848f;
   border-top: 1px solid #dddee1;
+  z-index: 1000;
 }
 
 #bottom-nav .nav-list {

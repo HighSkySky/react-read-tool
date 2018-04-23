@@ -26,17 +26,16 @@
 
 #search .history {
   padding: 0 5vmin;
-  background-color: #fff;
 }
 
 #search .history-item .icon{
-  width: 5vmin;
-  height: 5vmin;
+  width: 20px;
+  height: 20px;
   color: #bbbec4;
 }
 
 #search .history-item a {
-  padding: 3vmin 0;
+  padding: 12px 0;
 
   display: flex;
   align-items: center;
@@ -45,19 +44,19 @@
 }
 
 #search .history-clear a {
-  padding: 10px 0;
+  padding: 12px 0;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  font-size: 3.2vmin;
+  font-size: 12px;
   user-select: none;
 }
 
 #search .history-clear .icon {
-  width: 3.2vmin;
-  height: 3.2vmin;
+  width: 12px;
+  height: 12px;
 }
 
 #search .result-num {
