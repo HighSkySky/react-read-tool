@@ -11,5 +11,8 @@ router.use('/book', book.routes());
 router.use('/chapter', chapter.routes());
 router.use('/read', read.routes());
 router.use('/image', image.routes());
+router.get('*', ctx => {
+  ctx.body = 'hello'
+})
 
 export default router;

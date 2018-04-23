@@ -5,8 +5,8 @@ const router = new Router;
 
 router.use(async (ctx, next) => {
   // 检验参数
-  const searchKey = ctx.query.searchKey;
-  if (searchKey === undefined || searchKey.trim() === '') {
+  const key = ctx.query.key;
+  if (key === undefined || key.trim() === '') {
     ctx.body = { success: false, msg: 'param is error' };
   } else {
     await next();
@@ -14,10 +14,10 @@ router.use(async (ctx, next) => {
 })
 
 router.get('/', async ctx => {
-  const searchKey = ctx.query.searchKey;
+  const key = ctx.query.key;
   try {
-    const data = await api.search(searchKey);
-    return ctx.body = { success: false, data };
+    const data = await api.search(key);
+    return ctx.body = { success: true, data };
   } catch (error) {
     return ctx.body = { success: false, data: 'server can\'t get return' };
   }
