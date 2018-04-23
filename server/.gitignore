@@ -62,5 +62,4 @@ typings/
 
 build
 
-/image/
-!/image/nocover.jpg
+/image/*-*.jpg
