@@ -1,6 +1,7 @@
 import React from 'react'
-import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 
 import { changeSearchInput, fetchSearchResultStart } from '../../../store/reducers/search'
 
@@ -14,6 +15,7 @@ const mapDispatchToProps = dispatch => ({
 })
 
 @connect(mapStateToProps, mapDispatchToProps)
+@withRouter
 class Form extends React.Component {
   static propTypes = {
     onChange: PropTypes.func.isRequired,
@@ -25,6 +27,7 @@ class Form extends React.Component {
     event.preventDefault()
     const value = this.props.value.trim()
     if (value) {
+      this.props.history.push(`/search?key=${this.props.value}`)
       this.props.onSubmit(this.props.value)
     }
   }

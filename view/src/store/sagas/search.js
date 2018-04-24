@@ -14,8 +14,10 @@ import {
   addSearchHistory,
 } from '../reducers/search'
 
-import { 
-  changeStatusToError, changeStatusToLoading, changeStatusToNormal
+import {
+  changeStatusToError,
+  changeStatusToLoading,
+  changeStatusToNormal
 } from '../reducers/status'
 
 function* loadHistory(action) {
@@ -48,13 +50,16 @@ function* fetchSearch(action) {
     const result = yield response.json()
     if (result.success === true) {
       yield put(fetchSearchResultEnd(result.data))
-      yield put(addSearchHistory(key))
+      const history = yield select(state => state.search.history)
+      if (!history.includes(key)) {
+        yield put(addSearchHistory(key))
+      }
       yield put(changeStatusToNormal())
     } else {
       throw new Error(result.msg)
     }
   } catch (error) {
-    yield (put(changeStatusToError()))
+    yield(put(changeStatusToError()))
   }
 }
 

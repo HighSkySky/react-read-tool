@@ -59,14 +59,13 @@
   height: 12px;
 }
 
-#search .result-num {
-  padding: 0 5vmin 2.6vmin;
-  font-size: 3.2vmin;
-}
-
 #search .result {
   padding: 0 5vmin;
   background-color: #fff;
+}
+
+#search .result-num {
+  font-size: 12px;
 }
 
 #search .result-item {
