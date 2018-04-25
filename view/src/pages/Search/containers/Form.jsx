@@ -27,7 +27,7 @@ class Form extends React.Component {
     event.preventDefault()
     const value = this.props.value.trim()
     if (value) {
-      this.props.history.push(`/search?key=${this.props.value}`)
+      this.props.history.replace(`/search?key=${this.props.value}`)
       this.props.onSubmit(this.props.value)
     }
   }

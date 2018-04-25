@@ -6,12 +6,14 @@ import {
 
 import {
   initSearchHistory,
+  fetchSearchResultEnd,
+  addSearchHistory,
+  cleanSearchResult,
   INIT_SERACH_STATE,
   ADD_SEARCH_HISTORY,
   DELETE_SEARCH_HISTORY,
+  CHANGE_SEARCH_INPUT,
   FETCH_SEARCH_RESULT_START,
-  fetchSearchResultEnd,
-  addSearchHistory,
 } from '../reducers/search'
 
 import {
@@ -63,9 +65,17 @@ function* fetchSearch(action) {
   }
 }
 
+function* cleanResult() {
+  const key = yield select(state => state.search.ui.key)
+  if (key !== '') {
+    yield put(cleanSearchResult())
+  }
+}
+
 export default function* watch() {
   yield takeLatest(INIT_SERACH_STATE, loadHistory)
   yield takeLatest(ADD_SEARCH_HISTORY, saveHistory)
   yield takeLatest(DELETE_SEARCH_HISTORY, saveHistory)
   yield takeLatest(FETCH_SEARCH_RESULT_START, fetchSearch)
+  yield takeLatest(CHANGE_SEARCH_INPUT, cleanResult)
 }

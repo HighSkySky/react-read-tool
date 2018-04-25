@@ -7,12 +7,28 @@ import sagas from './sagas'
 
 const sagaMiddleware = createSagaMiddleware()
 
-const store = createStore(
-  reducers,
-  composeWithDevTools(),
-  applyMiddleware(sagaMiddleware)
-);
+function configureStore() {
+  const store = createStore(
+    reducers,
+    composeWithDevTools(),
+    applyMiddleware(sagaMiddleware)
+  )
+  
+  if (module.hot) {
+    // Enable Webpack hot module replacement for reducers
+    module.hot.accept('./reducers', () => {
+      const nextRootReducer = require('./reducers/index');
+      store.replaceReducer(nextRootReducer);
+    })
+  }
 
-sagaMiddleware.run(sagas)
+  sagaMiddleware.run(sagas)
 
-export default store
+  return store;
+}
+
+export default configureStore()
+
+
+
+

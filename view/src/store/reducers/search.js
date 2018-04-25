@@ -6,6 +6,9 @@ export const ADD_SEARCH_HISTORY = 'ADD_SEARCH_HISTORY'
 export const DELETE_SEARCH_HISTORY = 'DELETE_SEARCH_HISTORY'
 export const FETCH_SEARCH_RESULT_START = 'FETCH_SEARCH_HISTORY_START'
 export const FETCH_SEARCH_RESULT_END = 'FETCH_SEARCH_RESULT_END'
+export const LOAD_MORE_SEARCH_RESULT = 'LOAD_MORE_SEARCH_RESULT'
+export const CLEAN_SEARCH_RESULT = 'CLEAN_SEARCH_RESULT'
+export const SAVE_SEARCH_SCROLL_HEIGHT = 'SAVE_SEARCH_SCROLL_HEIGHT'
 
 const initState = function() {
   return {
@@ -14,6 +17,11 @@ const initState = function() {
     result: {
       key: '',
       data: []
+    },
+    ui: {
+      pageSize: 10,
+      current: 1,
+      scroll: 0
     }
   }
 }
@@ -21,8 +29,6 @@ const initState = function() {
 // reducers
 const reducers = function(state = initState(), action) {
   switch(action.type) {
-    case INIT_SERACH_STATE:
-      return { ...initState() }
     case CHANGE_SEARCH_INPUT:
       return { ...state, input: action.value }
     case INIT_SEARCH_HISTORY:
@@ -35,6 +41,12 @@ const reducers = function(state = initState(), action) {
       return { ...state, result: { key: action.key, data: [] } }
     case FETCH_SEARCH_RESULT_END:
       return { ...state, result: { ...state.result, data: action.data } }
+    case LOAD_MORE_SEARCH_RESULT:
+      return { ...state, ui: { ...state.ui, current: state.ui.current + 1 } }
+    case CLEAN_SEARCH_RESULT: 
+      return { ...state, result: { key: '', data: [] } }
+    case SAVE_SEARCH_SCROLL_HEIGHT:
+      return { ...state, ui: { ...state.ui, scroll: action.value } }
     default:
       return state
   }
@@ -69,4 +81,16 @@ export const fetchSearchResultStart = (key) => {
 
 export const fetchSearchResultEnd = (data) => {
   return { type: FETCH_SEARCH_RESULT_END, data }
+}
+
+export const loadMoreSearchResult = () => {
+  return { type: LOAD_MORE_SEARCH_RESULT }
+}
+
+export const cleanSearchResult = () => {
+  return { type: CLEAN_SEARCH_RESULT }
+}
+
+export const saveSearchScrollHeight = (value) => {
+  return { type: SAVE_SEARCH_SCROLL_HEIGHT, value }
 }
