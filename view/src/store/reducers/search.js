@@ -10,24 +10,22 @@ export const LOAD_MORE_SEARCH_RESULT = 'LOAD_MORE_SEARCH_RESULT'
 export const CLEAN_SEARCH_RESULT = 'CLEAN_SEARCH_RESULT'
 export const SAVE_SEARCH_SCROLL_HEIGHT = 'SAVE_SEARCH_SCROLL_HEIGHT'
 
-const initState = function() {
-  return {
-    input: '',
-    history: [],
-    result: {
-      key: '',
-      data: []
-    },
-    ui: {
-      pageSize: 10,
-      current: 1,
-      scroll: 0
-    }
+const initialState = {
+  input: '',
+  history: [],
+  result: {
+    key: '',
+    data: []
+  },
+  ui: {
+    pageSize: 10,
+    current: 1,
+    scroll: 0
   }
 }
 
 // reducers
-const reducers = function(state = initState(), action) {
+const reducers = function(state = initialState, action) {
   switch(action.type) {
     case CHANGE_SEARCH_INPUT:
       return { ...state, input: action.value }

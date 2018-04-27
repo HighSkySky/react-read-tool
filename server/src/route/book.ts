@@ -45,6 +45,7 @@ router.get('/', async ctx => {
       // 数据库中不存在，直接从网络抓取，存数据库并返回
       let data = await api.getBook(id, type);
       await saveBook(data);
+      delete data.chapters
       return ctx.body = { success: true, data, from: 'net' };
     }
   } catch (err) {

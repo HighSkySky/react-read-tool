@@ -6,7 +6,7 @@ import BookImg from '../../../components/BookImg'
 
 function ResultItem(props) {
   return (
-    <Link to={{ pathname: '/book', search: `?id=${props.id}&type=${props.type}` }}>
+    <Link to={{ pathname: '/book', search: `?type=${props.type}&id=${props.id}` }}>
       <div className="left">
         <BookImg id={props.id} type={props.type} />
       </div>
