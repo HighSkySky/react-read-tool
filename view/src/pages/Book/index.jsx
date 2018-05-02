@@ -1,11 +1,10 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 
+import TopNav from './components/TopNav'
+import BottomNav from './components/BottomNav'
 import BookImg from '../../components/BookImg'
-import Intro from './components/Intro'
-
 import { fetchBook } from '../../store/reducers/book'
 
 import { parse } from '../../util/url'
@@ -31,6 +30,7 @@ function Book(props) {
 
   return (
     <React.Fragment>
+      <TopNav />
       <div id="main">
         <div id="book">
           <div className="info">
@@ -44,14 +44,10 @@ function Book(props) {
               <div className="new">最新章节: {props.lastestChapter}</div>
             </div>
           </div>
-          <div className="btn-wrapped">
-            <a href="##" className="btn btn-primary">开始阅读</a>
-            <a className="btn" >添加到书架</a>
-            <a className="btn" onClick={() => alert('缓存功能暂不可用，请使用预读功能')}>缓存本书</a>
-          </div>
-          <Intro>{props.intro}</Intro>
+          <div className="intro">{props.intro}</div>
         </div>
       </div>
+      <BottomNav />
     </React.Fragment>
   )
 }

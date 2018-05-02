@@ -1,0 +1,13 @@
+.back-link {
+  display: flex;
+  align-items: center;
+  padding-right: 26px;
+  height: 100%;
+  color: #ff4d4f;
+  font-size: 16px;
+}
+
+.back-link .icon {
+  width: 26px;
+  height: 26px;
+}

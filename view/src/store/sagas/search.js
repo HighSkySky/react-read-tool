@@ -66,8 +66,9 @@ function* fetchSearch(action) {
 }
 
 function* cleanResult() {
-  const key = yield select(state => state.search.ui.key)
-  if (key !== '') {
+  const key = yield select(state => state.search.result.key)
+  const input = yield select(state => state.search.input)
+  if (key !== input) {
     yield put(cleanSearchResult())
   }
 }
