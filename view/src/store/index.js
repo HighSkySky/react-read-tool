@@ -1,34 +1,28 @@
 import { createStore, applyMiddleware } from 'redux'
-import createSagaMiddleware from 'redux-saga'
 import { composeWithDevTools } from 'redux-devtools-extension'
+import createSagaMiddleware from 'redux-saga'
 
-import reducers from './reducers'
-import sagas from './sagas'
+import rootReducers from '../reducers'
+import rootSagas from '../sagas'
 
 const sagaMiddleware = createSagaMiddleware()
 
-function configureStore() {
+function configureStore(initialState) {
   const store = createStore(
-    reducers,
+    rootReducers,
     composeWithDevTools(),
     applyMiddleware(sagaMiddleware)
+
   )
-  
+  sagaMiddleware.run(rootSagas)
+
   if (module.hot) {
-    // Enable Webpack hot module replacement for reducers
-    module.hot.accept('./reducers', () => {
-      const nextRootReducer = require('./reducers/index');
-      store.replaceReducer(nextRootReducer);
+    module.hot.accept('../reducers', () => {
+      store.replaceReducer(rootReducers)
     })
   }
 
-  sagaMiddleware.run(sagas)
-
-  return store;
+  return store
 }
 
-export default configureStore()
-
-
-
-
+export default configureStore
