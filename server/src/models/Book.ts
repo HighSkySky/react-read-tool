@@ -8,7 +8,7 @@ const Book = mongoose.model('Book', bookSchema);
 
 export async function findBook(id: string, type: string) {
   let book = await new Promise((resolve, reject) => {
-    Book.findOne({ id, type }, { _id: 0, chapters: 0, content: 0 }, (err, book) => {
+    Book.findOne({ id, type }, { _id: 0, chapters: {$slice: 1}, content: 0 }, (err, book) => {
       if (err) throw new Error('db find fail');
       book ? resolve(book) : resolve()
     });

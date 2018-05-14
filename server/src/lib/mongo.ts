@@ -35,4 +35,4 @@ export const bookSchema = new mongoose.Schema({
     nextId: { type: 'string', required: true  },
     lastId: { type: 'string', required: true  },
   }]
-})
+}, { versionKey:false })

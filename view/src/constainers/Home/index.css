@@ -1,0 +1,47 @@
+#home .book-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#home .book-list .item {
+  position: relative;
+}
+
+#home .book {
+  margin: 5vw;
+  display: block;
+  width: 23.3vw;
+  font-size: 14px;
+}
+
+#home .book img {
+  width: 100%;
+  height: 100%;
+}
+
+#home .manage-true,
+#home .manage-false {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+}
+
+#home .icon {
+  width: 5vw;
+  height: 5vw;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+#home .manage-true .icon{
+  color: #ff4d4f;
+}
+
+#home .manage-false .icon {
+  color: #fff;
+  background-color: #000;
+  border-radius: 5vw;
+  opacity: .4;
+}
