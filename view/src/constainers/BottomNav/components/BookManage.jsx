@@ -8,23 +8,24 @@ function BookManage(props) {
   const isLoad = selectLength === 1
   const isSelect = selectLength > 0
 
-  const isAllInTop = props.topNum ? Math.max(...props.selectIndexList) < props.topNum : false
-  const isAllNotInTop = props.topNum ? Math.min(...props.selectIndexList) > props.topNum : false 
+  const isAllInTop = props.topNum ? Math.max(...props.selectIndexList) + 1 <= props.topNum : false
+  const isAllNotInTop = props.topNum ? Math.min(...props.selectIndexList) + 1 > props.topNum : false 
+
+  console.log(isAllInTop, isAllNotInTop)
 
   return (
     <ul className="nav-list">
       <li className="list-item">
         {
-          isSelect && (isAllInTop && isAllNotInTop)
-          ? <a className="disabled" >
-              <Icon src="dingbu" />
-              <span>置顶</span>
-            </a> 
-          : <a className={isSelect ? '' : 'disabled'} 
-              onClick={isAllInTop ? props.onButtonClick : props.onTopClick}>
+          isSelect && (isAllInTop || isAllNotInTop)
+          ? <a onClick={isAllInTop ? props.onButtonClick : props.onTopClick}>
               <Icon src={isAllInTop ? 'dingbujinzhi' : 'dingbu'} />
               <span>{isAllInTop ? '取消置顶' : '置顶'}</span>
             </a>
+          : <a className="disabled" >
+            <Icon src="dingbu" />
+            <span>置顶</span>
+          </a> 
         }
       </li>
       <li className="list-item">

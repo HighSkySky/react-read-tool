@@ -42,7 +42,8 @@ function Home(props) {
     const addTopNum = indexs.length
     const newTopNum = props.topNum - addTopNum
     props.changeTopNum(newTopNum)
-    const newBookList = [...bookList.filter(item => item !== undefined).splice(newTopNum, 0, ...lists)]
+    const newBookList = bookList.filter(item => item !== undefined)
+    newBookList.splice(newTopNum, 0, ...lists)
     props.changeList(newBookList)
     props.closeManage()
   }

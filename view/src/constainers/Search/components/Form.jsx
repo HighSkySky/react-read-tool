@@ -8,11 +8,17 @@ class Form extends React.Component {
     value: PropTypes.string.isRequired
   }
 
+  constructor(props) {
+    super(props)
+    this.input = null
+  }
+
   handleSubmit = (event) => {
     event.preventDefault()
     const value = this.props.value.trim()
     if (value) {
       this.props.onSubmit(this.props.value)
+      this.input.blur()
     }
   }
 
@@ -26,6 +32,7 @@ class Form extends React.Component {
       <form className="form" 
         onSubmit={this.handleSubmit}>
         <input placeholder="输入关键词" type="text"
+          ref={input => this.input = input}
           onChange={this.handleChange}
           value={this.props.value} />
         <button type="submit">搜索</button>

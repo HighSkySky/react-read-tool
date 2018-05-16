@@ -5,13 +5,16 @@
 
 #home .book-list .item {
   position: relative;
+  margin-bottom: 5vw;
 }
 
 #home .book {
   margin: 5vw;
   display: block;
   width: 23.3vw;
+  height: 32vw;
   font-size: 14px;
+  -webkit-touch-callout: none;
 }
 
 #home .book img {

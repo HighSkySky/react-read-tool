@@ -42,10 +42,6 @@ class BookLink extends React.Component {
     this.closeTimer()
   }
 
-  handleContextMenu = event => {
-    event.preventDefault()
-  }
-
   handleToggleClick = event => {
     const index = this.props.index
     this.props.isSelect

@@ -22,7 +22,7 @@ function Book(props) {
   }
   
   // 检测store中是内容已否存在
-  if (props.id !== id && props.type !== type) {
+  if (props.id !== id || props.type !== type) {
     props.fetchBook({ id, type })
     return null
   }

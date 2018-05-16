@@ -32,7 +32,6 @@ class Search extends React.Component {
 
   componentWillUnmount() {
     const height = window.scrollY
-    console.log(height)
     this.props.saveScrollHeight(height)
   }
 
