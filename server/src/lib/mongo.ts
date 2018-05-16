@@ -25,11 +25,13 @@ export const bookSchema = new mongoose.Schema({
   selectTime: { type: 'string', required: true },
   lastestChapter: { type: 'string', required: true },
   chapters: [{
+    _id: false,
     id: { type: 'string', required: true },
     title: { type: 'string', required: true },
   }],
   contents: [{
-    id: { type: 'string', required: true },
+    _id: false,
+    chapter: { type: 'string', required: true },
     title: { type: 'string', required: true },
     content: { type: 'string', required: true  },
     nextId: { type: 'string', required: true  },

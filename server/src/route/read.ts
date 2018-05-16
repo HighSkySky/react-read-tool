@@ -21,7 +21,6 @@ router.get('/', async ctx => {
   try {
     // 搜索数据库中是否有章节
     let data = await findContent(id, type, chapter);
-    console.log(data)
     if (data) {
       // 数据库中存在，则直接返回内容
       return ctx.body = { success: true, data, form: 'db' };
