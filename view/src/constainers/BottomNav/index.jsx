@@ -4,6 +4,7 @@ import { Route, withRouter, Switch } from 'react-router-dom'
 import Default from './components/Default'
 import Home from './containers/Home'
 import Book from './containers/Book'
+import Read from './containers/Read'
 
 import './index.css'
 
@@ -20,6 +21,7 @@ function BottomNav(props) {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/book" component={Book} />
+        <Route path="/read" component={Read} />
         <Route component={Default} />
       </Switch>
     </footer>

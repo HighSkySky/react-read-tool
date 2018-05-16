@@ -3,15 +3,15 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 50px;
   background-color: #f8f8f9;
   border-bottom: 1px solid #dddee1;
   z-index: 1000;
+  overflow: hidden;
 }
 
 #top-nav .title {
   width: 100%;
-  height: 100%;
+  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,7 +22,7 @@
 
 #top-nav .manage {
   width: 100%;
-  height: 100%;
+  height: 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -56,10 +56,18 @@
   color: #ff4d4f;
 }
 
-#top-nav .book {
+#top-nav .book,
+#top-nav .read {
   width: 100%;
-  height: 100%;
+  height: 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
+#top-nav .read {
+  transition: height linear .2s;
+}
+
+
+

@@ -7,6 +7,7 @@
   color: #80848f;
   border-top: 1px solid #dddee1;
   z-index: 1000;
+  overflow: hidden;
 }
 
 #bottom-nav .nav-list {
@@ -52,4 +53,8 @@
 #bottom-nav .book .start {
   background-color: #ff4d4f;
   color: #fff;
+}
+
+#bottom-nav .read {
+  transition: height linear .2s;
 }
