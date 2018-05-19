@@ -5,6 +5,7 @@ export const INIT_BOOK_LIST = 'INIT_BOOK_LIST'
 export const ADD_BOOK_LIST = 'ADD_BOOK_LIST'
 export const DELETE_BOOK_LIST = 'DELETE_BOOK_LIST'
 export const CHANGE_BOOK_LIST = 'CHANGE_BOOK_LIST'
+export const TOGGLE_THEME = 'TOGGLE_THEME'
 
 const initialState = {
   data: {
@@ -13,8 +14,8 @@ const initialState = {
     // loadNum: 10 // 预读章节数
   },
   ui: {
-    fontSize: '14',
-    theme: 'normal' // 白天 normal, 夜间 night
+    fontSize: '18',
+    theme: true // 白天 true, 夜间 false
   }
 }
 
@@ -31,6 +32,8 @@ export default function (state = initialState, action) {
         ] } }
     case CHANGE_BOOK_LIST: 
       return { ...state, data: { ...state.data, bookList: action.list } }
+    case TOGGLE_THEME:
+      return { ...state, ui: { ...state.ui, theme: !state.ui.theme } }
     default:
       return state
   }
@@ -41,3 +44,4 @@ export const initBookList = makeActionCreator(INIT_BOOK_LIST, 'list')
 export const addBookList = makeActionCreator(ADD_BOOK_LIST, 'value')
 export const deleteBookList = makeActionCreator(DELETE_BOOK_LIST, 'index')
 export const changeBookList = makeActionCreator(CHANGE_BOOK_LIST, 'list')
+export const toggleTheme = makeActionCreator(TOGGLE_THEME)

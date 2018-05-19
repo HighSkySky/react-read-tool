@@ -1,0 +1,34 @@
+.slider {
+  margin: 16px 0;
+  user-select: none;
+}
+
+.slider-wrap {
+  position: relative;
+  width: 100%;
+  height: 4px;
+  background-color: #e9eaec;
+  border-radius: 3px;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0); 
+}
+
+.slider-button-wrap {
+  width: 18px;
+  height: 18px;
+  text-align: center;
+  background-color: transparent;
+  position: absolute;
+  top: -4px;
+  transform: translateX(-50%);
+}
+
+.slider-button {
+  width: 12px;
+  height: 12px;
+  background-color: #495060;
+  border-radius: 50%;
+  transition: all .2s linear;
+  outline: 0;
+}

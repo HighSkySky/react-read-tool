@@ -28,9 +28,9 @@ class App extends React.Component {
       <BrowserRouter>
         <React.Fragment>
           <Loading />
-          <Main />
           <TopNav />
           <BottomNav />
+          <Main />
         </React.Fragment>
       </BrowserRouter>
     )

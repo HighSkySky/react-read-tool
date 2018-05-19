@@ -14,7 +14,7 @@ function initState() {
     lastestChapter: '',
     intro:  '',
     selectTime: '',
-    contents: []
+    contents: [],
   }
 }
 

@@ -1,13 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import Default from '../components/Default'
+import DefaultNav from '../components/DefaultNav'
 import BookManage from '../components/BookManage'
 
 import { changeBookList } from '../../../reducers/user'
 import { closeBookManage, changeTopNum } from '../../../reducers/home'
 
-function Home(props) {
+function HomeNav(props) {
   const { bookList, selectList, isManage, topNum } = props
   const selectIndexList = []
   selectList.forEach((item, index) => item === true && selectIndexList.push(index))
@@ -65,9 +65,7 @@ function Home(props) {
     })
     props.changeList(bookList)
     props.closeManage()
-
   }
-
   return isManage 
     ? <BookManage
         topNum={topNum}
@@ -76,7 +74,7 @@ function Home(props) {
         onButtonClick={handleBottomClick}
         onLoadClick={handleLoadClick}
         onDeleteClick={handleDeleteClick} /> 
-    : <Default />
+    : <DefaultNav />
 }
 
 const mapStateToProps = state => ({
@@ -95,4 +93,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Home)
+)(HomeNav)

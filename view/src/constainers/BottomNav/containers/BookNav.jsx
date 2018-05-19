@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import { addBookList, deleteBookList } from '../../../reducers/user'
 
-function Book(props) {
+function BookNav(props) {
   // 参数校验
   if (props.id === '' || props.type === '') return null
 
@@ -68,4 +68,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Book)
+)(BookNav)

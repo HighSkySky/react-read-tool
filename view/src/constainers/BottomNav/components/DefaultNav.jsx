@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 
 import Icon from '../../../components/Icon'
 
-function BottomNavDefault() {
+function DefaultNav() {
   return (
     <ul className="nav-list">
       <li className="list-item">
@@ -28,4 +28,4 @@ function BottomNavDefault() {
   )
 }
 
-export default BottomNavDefault
+export default DefaultNav

@@ -4,7 +4,7 @@
   left: 0;
   width: 100%;
   background-color: #f8f8f9;
-  border-bottom: 1px solid #dddee1;
+  box-shadow: 0px 1px 0 .5px #dddee1;
   z-index: 1000;
   overflow: hidden;
 }
@@ -67,6 +67,21 @@
 
 #top-nav .read {
   transition: height linear .2s;
+}
+
+#top-nav .read.entered,
+#top-nav .read.entering {
+  height: 50px;
+}
+
+#top-nav .read.exited,
+#top-nav .read.exiting {
+  height: 0px;
+}
+
+#top-nav .read a {
+  display: block;
+  height: 50px;
 }
 
 

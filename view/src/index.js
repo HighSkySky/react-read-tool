@@ -12,6 +12,6 @@ const render = (Component) => {
     </Provider>,
     document.getElementById('root')
   )
-}
+}  
 
 render(App)

@@ -36,3 +36,11 @@ input, button {
   height: 100vh;
   padding: 50px 0 60px;
 }
+
+.active {
+  color: #ff4d4f;
+}
+
+.disabled {
+  color: #ccc;
+}

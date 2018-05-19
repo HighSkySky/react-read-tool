@@ -1,14 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-function TopNavDefault(props) {
+function DefaultNav(props) {
   return (
     <span className="title">{props.title}</span>
   )
 }
 
-TopNavDefault.propTypes = {
+DefaultNav.propTypes = {
   title: PropTypes.string.isRequired
 }
 
-export default TopNavDefault
+export default DefaultNav

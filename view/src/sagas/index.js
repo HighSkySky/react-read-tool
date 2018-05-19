@@ -6,6 +6,7 @@ import homeSagas from './home'
 import bookSagas from './book'
 import searchSagas from './search'
 import readSagas from './read'
+import chapterSagas from './chapter'
 
 function* rootSagas() {
   yield all([
@@ -14,7 +15,8 @@ function* rootSagas() {
     homeSagas(),
     bookSagas(),
     searchSagas(),
-    readSagas()
+    readSagas(),
+    chapterSagas()
   ])
 }
 

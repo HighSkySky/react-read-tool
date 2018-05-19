@@ -1,10 +1,10 @@
 import React from 'react'
 import { Route, withRouter, Switch } from 'react-router-dom'
 
-import Default from './components/Default'
-import Home from './containers/Home'
-import Book from './containers/Book'
-import Read from './containers/Read'
+import DefaultNav from './components/DefaultNav'
+import HomeNav from './containers/HomeNav'
+import BookNav from './containers/BookNav'
+import ReadNav from './containers/ReadNav'
 
 import './index.css'
 
@@ -19,10 +19,10 @@ function BottomNav(props) {
   return (
     <footer id="bottom-nav">
       <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/book" component={Book} />
-        <Route path="/read" component={Read} />
-        <Route component={Default} />
+        <Route exact path="/" component={HomeNav} />
+        <Route path="/book" component={BookNav} />
+        <Route path="/read" component={ReadNav} />
+        <Route component={DefaultNav} />
       </Switch>
     </footer>
   )

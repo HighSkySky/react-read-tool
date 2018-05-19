@@ -24,7 +24,7 @@ export async function findBook(id: string, type: string) {
 export async function findChapters(id: string, type: string) {
   let chapters = await new Promise((resolve, reject) => {
     Book.findOne({ id, type }, 
-      { selectTime: 1, chapters: 1, _id: 0 }, 
+      { selectTime: 1, chapters: 1, _id: 0, id: 1, type: 1, title: 1 }, 
       (err, data) => {
         if (err) throw new Error('db find fail');
         data ? resolve(data) : resolve()

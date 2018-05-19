@@ -6,6 +6,7 @@ import homeReducers from './home'
 import bookReducers from './book'
 import searchReducers from './search'
 import readReducers from './read'
+import chapterReducers from './chapter'
 
 export default combineReducers({
   status: statusReducers,
@@ -13,6 +14,7 @@ export default combineReducers({
   home: homeReducers,
   book: bookReducers,
   search: searchReducers,
-  read: readReducers
+  read: readReducers,
+  chapter: chapterReducers
 })
 

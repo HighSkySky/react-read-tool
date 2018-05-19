@@ -2,7 +2,7 @@ import React from 'react'
 
 import Icon from '../../../components/Icon'
 
-function Book(props) {
+function BookNav(props) {
   return(
     <div className="book">
       <a onClick={props.history.goBack}>
@@ -16,4 +16,4 @@ function Book(props) {
   )
 }
 
-export default Book
+export default BookNav

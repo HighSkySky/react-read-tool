@@ -10,4 +10,12 @@ function parse(search) {
   return result
 }
 
-export default { parse }
+function toString(data) {
+  const keys = Object.keys(data)
+  const values = []
+  keys.forEach(key => values.push(`${key}=${data[key]}`))
+  const string = values.join('&')
+  return string
+}
+
+export default { parse, toString }

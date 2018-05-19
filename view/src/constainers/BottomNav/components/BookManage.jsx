@@ -11,8 +11,6 @@ function BookManage(props) {
   const isAllInTop = props.topNum ? Math.max(...props.selectIndexList) + 1 <= props.topNum : false
   const isAllNotInTop = props.topNum ? Math.min(...props.selectIndexList) + 1 > props.topNum : false 
 
-  console.log(isAllInTop, isAllNotInTop)
-
   return (
     <ul className="nav-list">
       <li className="list-item">
