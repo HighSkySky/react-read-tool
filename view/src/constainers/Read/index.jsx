@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 
 import { initReadState, fetchReadStart, openReadNav, closeReadNav } from '../../reducers/read'
+import { changeBookList } from '../../reducers/user'
 
 import url from '../../util/url'
 
@@ -11,6 +12,14 @@ import TopTitle from './components/TopTitle'
 import './index.css'
 
 function Read(props) {
+  const index = props.bookList.findIndex(item => item.id === props.id && item.type === props.type)
+  if (index !== -1) {
+    if (props.bookList[index].history !== props.chapter) {
+      props.bookList[index].history = props.chapter
+      props.changeBookList([...props.bookList])
+    }
+  } 
+
   return (
     <div id="read" onClick={props.isNavShow ? props.closeNav : props.openNav}
       className={props.theme ? 'neight' : undefined}>
@@ -29,14 +38,16 @@ const mapStateToProps = state => ({
   ...state.read.data,
   isNavShow: state.read.ui.isNavShow,
   fontSize: state.user.ui.fontSize,
-  theme: state.user.ui.theme
+  theme: state.user.ui.theme,
+  bookList: state.user.data.bookList
 })
 
 const mapDispatchToProps = dispatch => ({
   initState: () => dispatch(initReadState()),
   fetchRead: value => dispatch(fetchReadStart(value)),
   openNav: () => dispatch(openReadNav()),
-  closeNav: () => dispatch(closeReadNav())
+  closeNav: () => dispatch(closeReadNav()),
+  changeBookList: list => dispatch(changeBookList(list))
 })
 
 @connect(mapStateToProps, mapDispatchToProps)
@@ -71,6 +82,7 @@ class ReadWrap extends React.Component {
   }
 
   fetchRead = () => {
+    window.scrollTo(0, 0)
     if (!this.state.isSame) {
       this.props.initState()
       this.props.fetchRead(this.state.param)
