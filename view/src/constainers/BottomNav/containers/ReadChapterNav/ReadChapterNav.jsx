@@ -44,7 +44,7 @@ class ReadChapterNav extends React.Component {
     const { id, type, chapterList } = this.props
     const chapter = chapterList.chapters[index].id
     const nextUrl = '/read?' + url.toString({ id, type, chapter })
-    this.props.history.push(nextUrl)
+    this.props.history.replace(nextUrl)
     isSave && this.list.push(this.state.index)
   }
 
@@ -104,8 +104,10 @@ class ReadChapterNav extends React.Component {
               <Slider value={value}
                 onInput={this.changeValue} 
                 onChange={this.selectValue} />
-              <a className="back"
-                onClick={this.handleBackClick}><Icon src="chexiao" /></a>
+              <a className={["back", this.list.length === 0 ? 'disabled' : undefined ].join(' ')}
+                onClick={this.list.length === 0 ? undefined: this.handleBackClick}>
+                <Icon src="chexiao" />
+              </a>
             </div>
           </div>
         </div>

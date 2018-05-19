@@ -6,6 +6,7 @@ export const ADD_BOOK_LIST = 'ADD_BOOK_LIST'
 export const DELETE_BOOK_LIST = 'DELETE_BOOK_LIST'
 export const CHANGE_BOOK_LIST = 'CHANGE_BOOK_LIST'
 export const TOGGLE_THEME = 'TOGGLE_THEME'
+export const CHANGE_FONT_SIZE = 'CHANGE_FONT_SIZE'
 
 const initialState = {
   data: {
@@ -34,6 +35,8 @@ export default function (state = initialState, action) {
       return { ...state, data: { ...state.data, bookList: action.list } }
     case TOGGLE_THEME:
       return { ...state, ui: { ...state.ui, theme: !state.ui.theme } }
+    case CHANGE_FONT_SIZE:
+      return { ...state, ui: { ...state.ui, fontSize: Number(action.value) } }
     default:
       return state
   }
@@ -45,3 +48,4 @@ export const addBookList = makeActionCreator(ADD_BOOK_LIST, 'value')
 export const deleteBookList = makeActionCreator(DELETE_BOOK_LIST, 'index')
 export const changeBookList = makeActionCreator(CHANGE_BOOK_LIST, 'list')
 export const toggleTheme = makeActionCreator(TOGGLE_THEME)
+export const changeFontSize = makeActionCreator(CHANGE_FONT_SIZE, 'value')

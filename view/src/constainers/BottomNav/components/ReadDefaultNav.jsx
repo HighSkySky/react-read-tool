@@ -8,7 +8,7 @@ import url from '../../../util/url'
 
 function ReadDefaultNav(props) {
   const { id, type, theme, isNavShow, isTransition } = props
-  const { openChapter, toggleTheme } = props
+  const { openChapter, openFont, toggleTheme } = props
 
   if (isTransition === false) return null
 
@@ -29,7 +29,7 @@ function ReadDefaultNav(props) {
               <NavButton icon="dibu">缓存</NavButton>
             </li>
             <li className="list-item">
-              <NavButton icon="A">字体</NavButton>
+              <NavButton icon="A" onClick={openFont}>设置</NavButton>
             </li>
             <li className="list-item">
               <NavButton icon="yueliangwanshangyejianmoshiyejianqingxianxing"
@@ -50,6 +50,7 @@ ReadDefaultNav.propTypes = {
   isTransition: PropTypes.bool.isRequired,
   toggleTheme: PropTypes.func.isRequired,
   openChapter: PropTypes.func.isRequired,
+  openFont: PropTypes.func.isRequired
 }
 
 export default ReadDefaultNav

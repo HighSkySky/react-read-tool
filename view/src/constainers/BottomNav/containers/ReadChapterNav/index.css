@@ -2,7 +2,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 998;
+  z-index: 500;
   width: 100vw;
   height: 100vh;
   -webkit-tap-highlight-color:transparent;

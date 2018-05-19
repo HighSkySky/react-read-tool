@@ -6,12 +6,14 @@ export const FETCH_READ_END = 'FETCH_READ_END'
 export const OPEN_READ_NAV = 'OPEN_READ_NAV'
 export const CLOSE_READ_NAV = 'CLOSE_READ_NAV'
 export const OPEN_READ_CHAPTER_NAV = 'OPEN_READ_CHAPTER_NAV'
+export const OPEN_READ_FONT_NAV = 'OPEN_READ_FONT_NAV'
 export const CLOSE_ALL_READ_NAV = 'CLOSE_ALL_READ_NAV'
 
 const initUiState = function () {
   return {
     isNavShow: false,
-    isChapterShow: false
+    isChapterShow: false,
+    isFontShow: false
   }
 }
 
@@ -49,6 +51,8 @@ export default function (state = initState(), action) {
       return { ...state, ui: { ...initUiState(), isNavShow: false } }
     case OPEN_READ_CHAPTER_NAV:
       return { ...state, ui: { ...initUiState(), isChapterShow: true } }
+    case OPEN_READ_FONT_NAV:
+      return { ...state, ui: { ...initUiState(), isFontShow: true } }
     case CLOSE_ALL_READ_NAV:
       return { ...state, ui: { ...initUiState() } }
     default:
@@ -62,4 +66,5 @@ export const fetchReadEnd = makeActionCreator(FETCH_READ_END, 'value')
 export const openReadNav = makeActionCreator(OPEN_READ_NAV)
 export const closeReadNav = makeActionCreator(CLOSE_READ_NAV)
 export const openReadChpaterNav = makeActionCreator(OPEN_READ_CHAPTER_NAV)
+export const openReadFontNav = makeActionCreator(OPEN_READ_FONT_NAV)
 export const closeAllReadNav = makeActionCreator(CLOSE_ALL_READ_NAV)
