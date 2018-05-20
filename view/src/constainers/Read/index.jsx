@@ -22,7 +22,7 @@ function Read(props) {
 
   return (
     <div id="read" onClick={props.isNavShow ? props.closeNav : props.openNav}
-      className={props.theme ? 'neight' : undefined}>
+      className={props.theme ? undefined : 'neight'}>
       <TopTitle bookTitle={props.bookTitle}
         chapterTitle={props.title} />
       <div className="title"
@@ -82,10 +82,10 @@ class ReadWrap extends React.Component {
   }
 
   fetchRead = () => {
-    window.scrollTo(0, 0)
     if (!this.state.isSame) {
       this.props.initState()
       this.props.fetchRead(this.state.param)
+      window.scrollTo(0, 0)
     }
   }
 

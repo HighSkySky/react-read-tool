@@ -24,7 +24,6 @@ function* fetchSearch(action) {
 function* cleanResult() {
   const key = yield select(state => state.search.result.key)
   if (key) {
-    console.log(key)
     yield put(cleanSearchResult())
   }
 }
