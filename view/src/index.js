@@ -4,6 +4,7 @@ import { Provider } from 'react-redux'
 
 import App from './App'
 import configureStore from './store'
+import servicework from './servicework'
 
 const render = (Component) => {
   ReactDOM.render(
@@ -14,4 +15,7 @@ const render = (Component) => {
   )
 }  
 
+servicework()
 render(App)
+
+
