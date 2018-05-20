@@ -19,9 +19,9 @@ function DefaultNav() {
         </NavLink>
       </li>
       <li className="list-item">
-        <NavLink to="/set">
+        <NavLink to="/more">
           <Icon src="others" />
-          <span>设置</span>
+          <span>更多</span>
         </NavLink>
       </li>
     </ul>

@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { hot } from 'react-hot-loader'
 
 import Loading from './constainers/Loading'
+// import Message from './constainers/Message'
 import TopNav from './constainers/TopNav'
 import BottomNav from './constainers/BottomNav'
 import Main from './constainers/Main'
@@ -28,6 +29,7 @@ class App extends React.Component {
       <BrowserRouter>
         <React.Fragment>
           <Loading />
+          {/* <Message content='更新完成'/> */}
           <TopNav />
           <BottomNav />
           <Main />

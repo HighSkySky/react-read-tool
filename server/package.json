@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "tsc -w",
     "start": "nodemon ./build/index.js",
-    "dev": "tsc && concurrently \"npm run watch\" \"npm run start\" "
+    "dev": "tsc && concurrently \"npm run watch\" \"npm run start\" ",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",

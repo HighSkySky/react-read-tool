@@ -25,11 +25,13 @@ function Read(props) {
       className={props.theme ? undefined : 'neight'}>
       <TopTitle bookTitle={props.bookTitle}
         chapterTitle={props.title} />
-      <div className="title"
-        style={{fontSize: props.fontSize + 'px'}}>{props.title}</div>
-      <br />
-      <div dangerouslySetInnerHTML={{__html: props.content}}
-        style={{fontSize: props.fontSize + 'px'}}></div>
+      <div className="read-content">
+        <div className="title"
+            style={{fontSize: props.fontSize + 'px'}}>{props.title}</div>
+        <br />
+        <div dangerouslySetInnerHTML={{__html: props.content}}
+          style={{fontSize: props.fontSize + 'px'}}></div>
+      </div>
     </div>
   )
 }

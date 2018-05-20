@@ -1,0 +1,13 @@
+.message {
+  width: 100vw;
+  height: 50px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1111;
+  background-color: #19be6b;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
