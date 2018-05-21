@@ -3,30 +3,36 @@ import { connect } from 'react-redux'
 
 import { addBookList, deleteBookList } from '../../../reducers/user'
 
+import url from '../../../util/url'
+
 function BookNav(props) {
   // 参数校验
   if (props.id === '' || props.type === '') return null
 
+  // 检测store中是否存在此书
+  const { id, type } = url.parse(props.location.search)
+  if (props.id !== id || props.type !== type) return null
+
   // 判断书是否已经被收藏
   const index = props.bookList.findIndex(
-    item => item.id === props.id && item.type === props.type
+    item => item.id === id && item.type === type
   )
 
   const firstChapter = props.chapters[0].id
 
   // 定义收藏信息
   const value = {
-    id: String(props.id),
-    type: String(props.type),
+    id: String(id),
+    type: String(type),
     title: props.title,
     history: firstChapter
   }
 
   const handleStartClick = () => {
-    let url = index === -1 
-      ? `/read?id=${props.id}&type=${props.type}&chapter=${firstChapter}`
-      : `/read?id=${props.id}&type=${props.type}&chapter=${props.bookList[index].history}`
-    props.history.push(url)
+    let newUrl = '/read?' + url.toString({ 
+      id, type, chapter: index === -1 ? firstChapter : props.bookList[index].history 
+    })
+    props.history.push(newUrl)
   }
 
   return (

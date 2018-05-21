@@ -13,7 +13,7 @@ function TopNav() {
     <header id="top-nav">
       <Route exact path="/" component={HomeNav} />
       <Route path="/search" render={() => <DefaultNav title="搜索" />} />
-      <Route path="/set" render={() => <DefaultNav title="设置" />} />
+      <Route path="/more" render={() => <DefaultNav title="设置" />} />
       <Route path="/book" component={BookNav} />
       <Route path="/read" component={ReadNav} />
     </header>
