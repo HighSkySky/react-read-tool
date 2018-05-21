@@ -83,6 +83,10 @@ class ReadWrap extends React.Component {
     this.fetchRead()
   }
 
+  componentWillUnmount() {
+    window.scrollTo(0, 0)
+  }
+
   fetchRead = () => {
     if (!this.state.isSame) {
       this.props.initState()

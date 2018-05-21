@@ -1,0 +1,14 @@
+#chapter {
+  padding: 0 5vw;
+}
+
+#chapter .title {
+  font-size: 16px;
+  padding: 15px;
+  text-align: center;
+}
+
+#chapter .item {
+  padding: 8px 0;
+  border-top: .5px solid #e9eaec;
+}
