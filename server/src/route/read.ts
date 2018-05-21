@@ -23,11 +23,13 @@ router.get('/', async ctx => {
     let data = await findContent(id, type, chapter);
     if (data) {
       // 数据库中存在，则直接返回内容
+      data = Object.assign(data, ctx.query)
       return ctx.body = { success: true, data, form: 'db' };
     } else {
       // 数据库中不存在，从网络抓取内容
       let data = await api.getContent(id, type, chapter);
       await saveContent(id, type, data);
+      data = Object.assign(data, ctx.query)
       return ctx.body = { success: true, data, form: 'net' };
     }
   } catch (error) {
