@@ -41,8 +41,6 @@ export default function (state = initState(), action) {
   switch(action.type) {
     case INIT_READ_STATE:
       return { data: initDataState(), ui: { ...initUiState(), isChapterShow: state.ui.isChapterShow } }
-    case FETCH_READ_START:
-      return { ...state, data: { ...state.data, ...action.value } }
     case FETCH_READ_END:
       return { ...state, data: { ...state.data, ...action.value } }
     case OPEN_READ_NAV:

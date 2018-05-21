@@ -9,9 +9,11 @@ import './index.css'
 
 class ReadChapterNavWrap extends React.Component {
   componentDidUpdate() {
-    const { id, type, chapterList } = this.props
-    if (chapterList.id !== id || chapterList.type !== type) {
-      this.props.fetchChapter({id, type})
+    if (this.props.isChapterShow) {
+      const { id, type, chapterList } = this.props
+      if (chapterList.id !== id || chapterList.type !== type) {
+        this.props.fetchChapter({id, type})
+      }
     }
   }
 

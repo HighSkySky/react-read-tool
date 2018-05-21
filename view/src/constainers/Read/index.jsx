@@ -75,10 +75,6 @@ class ReadWrap extends React.Component {
     return { isSame, param }
   }
 
-  componentDidMount() {
-    this.fetchRead()
-  }
-
   componentDidUpdate() {
     this.fetchRead()
   }
